@@ -1,12 +1,10 @@
-import "./App.css";
-import Card from "./Components/UI/Card.js";
+import style from "./App.module.css";
+import AddUser from "./Components/Users/AddUser.js";
 
 function App() {
   return (
-    <div className="background">
-      <Card>
-        <p>Wow</p>
-      </Card>
+    <div className={style.background}>
+      <AddUser></AddUser>
     </div>
   );
 }
