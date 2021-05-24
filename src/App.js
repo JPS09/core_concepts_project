@@ -1,10 +1,9 @@
-import style from "./App.module.css";
 import AddUser from "./Components/Users/AddUser.js";
-import UserList from './Components/Users/UserList.js'
+import UserList from "./Components/Users/UserList.js";
 
 function App() {
   return (
-    <div className={style.background}>
+    <div>
       <AddUser></AddUser>
       <UserList users={[]}></UserList>
     </div>
