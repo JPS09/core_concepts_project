@@ -31,13 +31,23 @@ const AddUser = (props) => {
       });
       return;
     }
+
     props.onAddUser(enteredUsername, enteredAge);
     setEnteredUsername("");
     setEnteredAge("");
   };
+  const closeModalHandler = () => {
+    setErrorState();
+  };
   return (
     <div>
-      {errorState && <ErrorModal title={errorState.title} message={errorState.message} />}
+      {errorState && (
+        <ErrorModal
+          title={errorState.title}
+          message={errorState.message}
+          onClose={closeModalHandler}
+        />
+      )}
       <Card className={classes.input}>
         <form onSubmit={addUserHandler} action="">
           <label htmlFor="username">Username</label>
