@@ -8,7 +8,7 @@ function App() {
     setUsersList((previousUsers) => {
       return [
         ...previousUsers,
-        { name: uName, age: uAge, id: Date.now().toString },
+        { name: uName, age: uAge, id: Math.random().toString() },
       ];
     });
   };
