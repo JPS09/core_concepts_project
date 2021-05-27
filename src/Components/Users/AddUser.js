@@ -5,9 +5,9 @@ import classes from "./AddUser.module.css";
 import { useRef, useState } from "react";
 const AddUser = (props) => {
   const enteredName = useRef(); //Does a direct link to the DOM element on which the variable is called with ref atribute
-  const enteredUserAge = useRef();
+  const enteredUserAge = useRef(); //Doesn't make this component controlled by React (Uncontrolled component)
 
-  const [enteredUsername, setEnteredUsername] = useState("");
+  const [enteredUsername, setEnteredUsername] = useState(""); // Make the state controlled by React (Controlled Component)
   const [enteredAge, setEnteredAge] = useState("");
   const [errorState, setErrorState] = useState();
   const usernameChangeHandler = (event) => {
