@@ -2,8 +2,11 @@ import Card from "../UI/Card.js";
 import Button from "../UI/Button.js";
 import ErrorModal from "../UI/ErrorModal.js";
 import classes from "./AddUser.module.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 const AddUser = (props) => {
+  const enteredName = useRef(); //Does a direct link to the DOM element on which the variable is called with ref atribute
+  const enteredUserAge = useRef();
+
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
   const [errorState, setErrorState] = useState();
@@ -16,6 +19,11 @@ const AddUser = (props) => {
   };
   const addUserHandler = (event) => {
     event.preventDefault();
+    console.log(
+      "Accessing the value of the element",
+      { enteredName },
+      enteredName.current.value
+    );
     if (enteredUsername.trim().length === 0) {
       setErrorState({
         title: "Invalid Input",
@@ -56,6 +64,7 @@ const AddUser = (props) => {
             type="text"
             onChange={usernameChangeHandler}
             value={enteredUsername}
+            ref={enteredName}
           />
           <label htmlFor="age">Age</label>
           <input
@@ -63,6 +72,7 @@ const AddUser = (props) => {
             type="text"
             onChange={ageChangeHandler}
             value={enteredAge}
+            ref={enteredUserAge}
           />
           <Button type="submit">Create User</Button>
         </form>
